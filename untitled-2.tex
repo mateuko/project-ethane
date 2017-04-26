@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{multirow,tabularx}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm, headsep=1.2cm]{geometry} 
+\usepackage[rightcaption]{sidecap}
+\usepackage{float}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\begin{center}
+    \includegraphics[width=7cm]{Logo-PW-duze.jpg} \\
+    [10mm]
+	\line(1,0){435} \\
+	[7mm]
+	\huge{\textsc{Metody Komputerowe w Spalaniu}} \\
+	\line(1,0){435} \\
+	[15mm]
+    \LARGE{\textbf{Autoignition of ethane - oxygen mixture for different initial temperature, pressure and equivalence ratio}} \\
+	[50mm]
+	\Large{Dorota Surowiec}\\
+    \Large{271348}\\
+    [25mm]
+    \large{Aerospace Engineering}\\
+    [3mm]
+    \large{Warsaw, 26.04.2017}\\
+    \end{center}
+    
+\end{titlepage}
+
+\newpage
+
+\begin{abstract}
+
+\textit{The purpose of the project is to conduct a study of autoignition of a ethane - oxygen mixture for different initial temperature [$T$], pressure [$P$] and equivalence ratio [$\phi$], using Cantera software. The results are several plots, showing influence of these parameters on autoignition timing and final temperature and also a .csv file with all the data.}
+
+\end{abstract}
+
+\section{Definition of autoignition}
+Autoignition is a spontaneously ignition of the fuel - oxidizer mixture without the presence of a flame. One of the most important parameter is the autoignition temperature, which decides on absence of this phenomenon. Below this temperature the autoignition does not occur. Mostly it depends on composition and pressure of the frammable mixture. Nowadays it is very common phenomenon, not only in research, but also in daily life and it demands to take special care.
+
+\section{Mathematical model}
+In the literature there are several ways to define the autoignition. For the needs of this study, I used this one that relies on the temperature gradient: the time of the sharpest temperature increase is the autoignition point. In order to catch this point, the step of the simulation was set possibly small - 10{$^{-6}$} sec. The calculations were held for 11 different temperatures, pressures and 10 different values of equivalence ratio. It took a few minutes to calculate it. To accomplish more accurate of calculations, it needs to set the largest number and the smallest step of iterations. For the purpose of this project, 11x11x10 is more than enough.
+
+\section{Results and plots}
+
+\subsection{Results for P=1atm and $\phi$=1 and different initial temperature}
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Autoign_inittemp}
+        \caption{Influence of initial temperature on autoignition timing.}
+    \end{center}
+\normalsize
+{The plot shows that autoignition does not take place below 1100 K.}
+\end{figure}
+
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Finaltemp_temp}
+        \caption{Influence of initial temperature on final temperature.}
+    \end{center}
+\normalsize
+{The final temperature is almost constant for range of temperatures above 1100 K. Below this value the autoignition does not occur. }
+\end{figure}
+
+\subsection{Results for T=1100K, $\phi$=1 and different pressure}
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Autoign_pressure}
+        \caption{Influence of pressure on autoignition timing.}
+    \end{center}
+\normalsize
+{The autoignition timing decreases for greater values of pressure.}
+\end{figure}
+
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Finaltemp_pressure}
+        \caption{Influence of pressure on final temperature.}
+    \end{center}
+\normalsize
+{The final temperature increases with the growth of pressure. }
+\end{figure}
+
+\subsection{Results for T=1100K, P=1atm and different values of equivalence ratio}
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Autoign_fi}
+        \caption{Influence of equivalence ratio on autoignition timing.}
+    \end{center}
+\normalsize
+{The time of autoignition decreases with the growing values of $\phi$. }
+\end{figure}
+
+\begin{figure} [H]
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{Finaltemp_fi}
+        \caption{Influence of equivalence ratio on final temperature.}
+    \end{center}
+\normalsize
+{The greatest value of final temperature occures for $\phi$=1. Moreover, there is the optimal value, according to the theory (the best conditions are always for stoichiometry).}
+\end{figure}
+
+\section{Conclusion}
+The research gives information about the behavior of autoignition with the parameters of temperature, pressure and $\phi$. The definition of autoignition is based on the most common mathematical model available on Cantera software. The data read from the plots are just approximation of the actual state. The more precise data are located in the .csv file (DS\_Autoignition\_EthaneOxygen.csv attached to the report). This file contains information about final temperature and autoignition timing for every investigated instantiation, including the lowest temperature of autoignition.
+
+\newpage
+
+\section{References}
+\begin{enumerate}
+	\item{CANTERA\_HandsOn.pdf}
+    \item{Wykład\_4\_Cantera.pdf}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\end{document}
